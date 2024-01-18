@@ -1,0 +1,127 @@
+ const selectionSort=(arr)=>{
+    let n=arr.length;
+    let min;
+    for(let i=0;i<n-1;i++){
+        min=i
+        for(let j=i+1;j<n;j++){
+            if(arr[j]<arr[min]){
+                min=j
+            }
+        }
+        let temp=arr[i];
+        arr[i]=arr[min];
+        arr[min]=temp
+    }
+    return arr
+}
+let arr=[6.9,-1,7]
+console.log(selectionSort(arr));
+
+
+ class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Stack{
+    constructor(){
+        this.top = null;
+    }
+
+    push(value){
+        let node = new Node(value);
+        if(!this.top){
+            this.top = node;
+        } else {
+            let curr = this.top;
+            this.top = node;
+            this.top.next = curr
+        }
+    }
+
+    pop(){
+        if(!this.top){
+            return null
+        } else {
+            this.top = this.top.next
+        }
+    }
+
+    print(){
+        let curr = this.top;
+        let resultStack = '';
+        while(curr){
+            resultStack += `${curr.value} `;
+            curr = curr.next;
+        }
+        console.log(resultStack);
+    }
+}
+
+let s = new Stack();
+s.push(1)
+s.push(2)
+s.push(3)
+s.push(4)
+s.print()
+s.pop()
+s.print()
+[7:56 PM, 1/18/2024] Nayna: ith stack
+
+
+
+
+ class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Queue{
+    constructor(){
+        this.first = null;
+        this.last = null;
+    }
+
+    enqueue(value){
+        let node = new Node(value);
+        if(!this.first){
+            this.first = node;
+            this.last = node;
+        } else {
+            this.last.next = node;
+            this.last = node
+        }
+    }
+
+    dequeue(){
+        if(!this.first){
+            return null;
+        } else {
+            this.first = this.first.next 
+        }
+    }
+
+    print(){
+        let curr = this.first;
+        let result = '';
+        while(curr){
+            result += `${curr.value} `;
+            curr = curr.next;
+        }
+        console.log(result);
+    }
+}
+
+let q = new Queue();
+q.enqueue(10);
+q.enqueue(20);
+q.enqueue(30);
+q.enqueue(40);
+q.print()
+q.enqueue(50)
+q.dequeue()
+q.print()
