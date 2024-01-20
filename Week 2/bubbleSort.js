@@ -22,3 +22,4 @@ function bubbleSort(arr) {
 
  bubbleSort(arr)
  console.log(arr);
+ 
