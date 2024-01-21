@@ -26,7 +26,7 @@ class circularQueue {
       }
     }
   }
-
+  
   dequeue() {
     if (this.isEmpty()) {
       return null
