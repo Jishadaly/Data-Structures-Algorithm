@@ -12,6 +12,7 @@ function mergeSort(arr){
 
 }
 
+
 function merge(leftArr,rightArr) {
        const sortedArr=[]
        while (leftArr.length && rightArr.length) {
