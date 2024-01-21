@@ -46,53 +46,98 @@
 // }
 
 
-class Node {
-   constructor(value){
+// class Node {
+//    constructor(value){
+//     this.value = value
+//     this.next =  null
+//    }
+// }
+
+// class Queue{
+//   constructor(){
+//     this.first = null
+//     this.last = null
+//   }
+
+//   enqueue(element){
+//     const node = new Node(element)
+//     if(!this.first){
+//        this.first = node 
+//        this.last   = node
+
+//     }else{
+//       this.last.next = node
+//       this.last = node
+//     }
+//   }
+
+//   dequeue(){
+//     if (!this.first) {
+//       return null
+//     }else{
+//       this.first = this.first.next
+//     }
+//   }
+//   print(){
+//     if(!this.first){
+//       console.log("queue is empty ");
+//     }else{
+//        let curr = this.first
+//        let result = ""
+//        while(curr){
+//         result += curr.value
+//         curr = curr.next
+//        }
+//        console.log(result);
+//     }
+//   }
+
+
+// }
+
+class Node{
+  constructor(value){
     this.value = value
-    this.next =  null
-   }
+    this.next = null
+  }
 }
 
-class Queue{
-  constructor(){
-    this.first = null
-    this.last = null
-  }
+class Queue {
+   constructor(){
+    this.front = null
+    this.rear = null
+   }
 
-  enqueue(element){
+   enqueue(element){
     const node = new Node(element)
-    if(!this.first){
-       this.first = node 
-       this.last   = node
-
+    if (!this.front) {
+      this.front = node
+      this.rear = node
     }else{
-      this.last.next = node
-      this.last = node
+      this.rear.next = node
+      this.rear = node
     }
-  }
+   }
 
-  dequeue(){
-    if (!this.first) {
-      return null
+   dequeue(){
+    if (!this.front) {
+      console.log(("queue is empty"));
     }else{
-      this.first = this.first.next
+      this.front.next = this.front
     }
-  }
-  print(){
-    if(!this.first){
-      console.log("queue is empty ");
+   }
+
+   print(){
+    if (!this.front) {
+      console.log("queue is empty");
     }else{
-       let curr = this.first
-       let result = ""
-       while(curr){
-        result += curr.value
-        curr = curr.next
+       let cur = this.front
+       while(cur){
+        console.log(cur.value);
+        cur = cur.next
        }
-       console.log(result);
     }
-  }
-
-
+   }
 }
 
 
