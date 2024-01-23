@@ -77,16 +77,42 @@ console.log(arr);
 //     }
 // }
 
+// function insertionSort(arr){
+//    for(let i=0;i<arr.length ; i++){
+//       let numToInsert = arr[i]
+//       let j = i-1
+
+//       while( j>=0 && arr[j] > numToInsert){
+//          arr[j+1] = arr[j]
+
+//          j--
+//       }
+//       arr[j+1] = numToInsert
+//    }
+// }
+
+// function insertionSort(arr){
+//    for(let i=1;i<arr.length;i++){
+//       let curr = arr[i]
+//       let j= i-1
+//       while( j>=0 && arr[j] > curr ){
+//          arr[j+1] = arr[j]
+//          j--
+//       }
+//       arr[j+1] = curr
+//    }
+// }
+
+
 function insertionSort(arr){
-   for(let i=0;i<arr.length ; i++){
-      let numToInsert = arr[i]
-      let j = i-1
+   for(let i=0;i<arr.length ;i++){
+      let curr = arr[i]
+      let j=i-1
 
-      while( j>=0 && arr[j] > numToInsert){
+      while( j>=0 && arr[j] > curr){
          arr[j+1] = arr[j]
-
          j--
       }
-      arr[j+1] = numToInsert
+      arr[j+1] = curr
    }
 }
