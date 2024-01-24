@@ -39,7 +39,7 @@
 //       let result =''
 //       while(curr){
 //         result += curr.value
-        
+
 //           curr= curr.next
 //       }
 //       console.log(result);
@@ -202,7 +202,7 @@
 // class Queue{
 
 //   constructor(){
-    
+
 //     this.front = null
 //     this.rear = null
 
@@ -245,57 +245,108 @@
 
 
 
+// class Node {
+//   constructor(value){
+//     this.value = value
+//     this.next = null
+//   }
+// }
+
+// class Queue{
+//   constructor(){
+//     this.front = null
+//     this.rear = null
+//     this.size = 0
+//   }
+//   enqueue(element){
+//     const node = new Node(element)
+//     if (!this.front) {
+//       this.front = node
+//       this.rear =node
+//     }else{
+//         this.rear.next = node 
+//         this.rear = node
+//     }
+//   }
+
+//   dequeue(){
+//      if (!this.front) {
+//       return null
+//      }else{
+//       this.front = this.front.next
+
+//      }
+//   }
+
+
+//   print(){
+//     if (!this.front) {
+//       console.log(" queue is empty");
+//     }else{
+//       let curr = this.front
+//       while(curr){
+//         console.log(curr.value);
+//         curr = curr.next
+//       }
+//     }
+//   }
+// }
+
+
+
 class Node {
-  constructor(value){
+  constructor(value) {
     this.value = value
     this.next = null
   }
 }
 
-class Queue{
-  constructor(){
+class Queue {
+
+  constructor() {
     this.front = null
     this.rear = null
-    this.size = 0
   }
-  enqueue(element){
-    const node = new Node(element)
+
+  enqueue(value) {
+    const node = new Node(value)
     if (!this.front) {
       this.front = node
-      this.rear =node
+      this.rear = node
+    } else {
+      this.rear.next = node
+      this.rear = node
+    }
+
+  }
+  dequeue(){
+    if (!this.front) {
+       return null
     }else{
-        this.rear.next = node 
-        this.rear = node
+       this.front = this.front.next
     }
   }
 
-  dequeue(){
-     if (!this.front) {
+  print() {
+    if (!this.front) {
       return null
-     }else{
-      this.front = this.front.next
-
-     }
+    }
+    let curr = this.front
+    while (curr) {
+      console.log(curr.value);
+      curr = curr.next
+    }
   }
   
 
-  print(){
-    if (!this.front) {
-      console.log(" queue is empty");
-    }else{
-      let curr = this.front
-      while(curr){
-        console.log(curr.value);
-        curr = curr.next
-      }
-    }
-  }
 }
+
+
 
 const queue = new Queue()
 
 queue.enqueue(10)
 queue.enqueue(20)
-queue.enqueue(30)
 queue.dequeue()
+queue.enqueue(30)
 queue.print()

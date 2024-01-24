@@ -220,62 +220,157 @@
 // }
 
 
-class Node {
+// class Node {
+//   constructor(value){
+//     this.value = value
+//     this.next = null
+//   }
+// }
+
+// class Stack {
+
+//   constructor(){
+//     this.top = null
+//     this.size=0
+//   }
+
+//   isEmpty(){
+//     return this.size === 0
+//   }
+
+//   push(element){
+//     const node = new Node(element)
+//     if (this.isEmpty()) {
+//         this.top = node
+//     }else{
+//        node.next = this.top
+//        this.top = node
+//     }
+//     this.size ++
+//   }
+//   display(){
+//     if (this.isEmpty()) {
+//       console.log(" stack is emmpty ");
+//     }else{
+//       let cur = this.top
+//       while(cur){
+//         console.log(cur.value);
+//         cur = cur.next
+//       }
+//     }
+//   }
+//   pop(){
+//     if(this.isEmpty()){
+//       return null
+//     }else{
+//      let removedNode = this.top
+//      this.top = this.top.next
+//      removedNode.next = null
+//      this.size --
+//     }
+//   }
+
+// }
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//   }
+// }
+
+// class Stack {
+//   constructor() {
+//     this.top = null;
+//     this.size = 0;
+//   }
+
+//   isEmpty() {
+//     return this.size === 0;
+//   }
+
+//   push(element) {
+//     const node = new Node(element);
+//     if (this.isEmpty()) {
+//       this.top = node;
+//     } else {
+//       node.next = this.top;
+//       this.top = node;
+//       this.size++;
+//     }
+//   }
+
+//   display() {
+//     if (this.isEmpty()) {
+//       console.log("There is no element");
+//     } else {
+//       let cur = this.top;
+//       while (cur) {
+//         console.log(cur.value);
+//         cur = cur.next;
+//       }
+//     }
+//   }
+// }
+
+// const stack = new Stack();
+
+// stack.push(30);
+// stack.push(200);
+// stack.push(10);
+// stack.display();
+
+class Node{
   constructor(value){
-    this.value = value
+    this.value =value
     this.next = null
   }
 }
 
 class Stack {
-
   constructor(){
     this.top = null
-    this.size=0
+    this.size = 0
   }
-
   isEmpty(){
     return this.size === 0
   }
-
   push(element){
-    const node = new Node(element)
+    const node = new Node(element);
     if (this.isEmpty()) {
-        this.top = node
+     this.top = node
+     
     }else{
-       node.next = this.top
-       this.top = node
+     
+      node.next = this.top
+      this.top = node
+    
     }
-    this.size ++
+    this.size++
   }
-  display(){
+
+  pop() {
     if (this.isEmpty()) {
-      console.log(" stack is emmpty ");
-    }else{
-      let cur = this.top
-      while(cur){
-        console.log(cur.value);
-        cur = cur.next
-      }
-    }
-  }
-  pop(){
-    if(this.isEmpty()){
-      return null
-    }else{
-     let removedNode = this.top
-     this.top = this.top.next
-     removedNode.next = null
-     this.size --
+      console.log("Stack is empty");
+    } else {
+      this.top = this.top.next;
+      this.size--;
     }
   }
 
+  display(){
+    let curr = this.top
+    while(curr){
+      console.log(curr.value);
+      curr = curr.next
+    }
+  }
 }
+
 
 const stack = new Stack()
 
-stack.push(30)
-stack.push(200)
 stack.push(10)
+stack.push(20)
+stack.push(30)
 stack.pop()
 stack.display()
