@@ -1,9 +1,11 @@
+
 class DoubleEndedQueue {
   constructor() {
       this.item = [];
       this.rear = -1;
       this.front = -1;
       this.size = 0;
+
   }
 
   isEmpty() {
@@ -64,6 +66,7 @@ dqueue.addfront(5);
 dqueue.display();
 console.log('empty?', dqueue.isEmpty());
 console.log('size', dqueue.getSize());
+
 
 
 

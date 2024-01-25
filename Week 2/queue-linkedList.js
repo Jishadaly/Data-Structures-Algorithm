@@ -301,14 +301,15 @@ class Node {
   }
 }
 
-class Queue {
 
+class Queue {
   constructor() {
     this.front = null
     this.rear = null
   }
 
   enqueue(value) {
+
     const node = new Node(value)
     if (!this.front) {
       this.front = node
@@ -316,9 +317,11 @@ class Queue {
     } else {
       this.rear.next = node
       this.rear = node
-    }
 
+    }
   }
+
+
   dequeue(){
     if (!this.front) {
        return null
@@ -326,6 +329,7 @@ class Queue {
        this.front = this.front.next
     }
   }
+
 
   print() {
     if (!this.front) {
@@ -337,7 +341,6 @@ class Queue {
       curr = curr.next
     }
   }
-  
 
 }
 

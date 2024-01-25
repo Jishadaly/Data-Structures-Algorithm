@@ -28,32 +28,64 @@
 
 // }
 
-class Queue {
+// class Queue {
+// constructor(){
+//   this.items = []
+//   }
+//   enqueue(element){
+//     this.items.push(element)
+//   }
+//   dequeue(){
+//   return this.items.shift()
+//   }
+//   display(){
+//     return console.log(this.items.toLocaleString());
+//   }
+//   peek(){
+//     return this.items[0]
+//   }
+//   isEmpty(){
+//     return this.items.length === 0 
+//   }
+// }
+
+
+class Queue{
+
   constructor(){
-    this.items = []
+     this.items = []
   }
+
   enqueue(element){
-    this.items.push(element)
+     this.items.push(element)
   }
+
   dequeue(){
-   return this.items.shift()
+    return this.items.shift()
   }
+
   display(){
-    return console.log(this.items.toLocaleString());
+   console.log(this.items);
   }
+
   peek(){
     return this.items[0]
   }
-  isEmpty(){
-    return this.items.length ===0
+  
+  reverse(){
+    for(let i=this.items.length-1;i>=0;i--){
+      console.log(this.items[i]);
+    }
   }
+  
 }
 
-const queue = new Queue()
 
+const queue = new Queue() 
 queue.enqueue(10)
-queue.enqueue(30)
 queue.enqueue(20)
+queue.enqueue(30)
 queue.dequeue()
-console.log(queue.peek())
+// console.log(queue.peek())
 queue.display()
+console.log(queue.reverse());
