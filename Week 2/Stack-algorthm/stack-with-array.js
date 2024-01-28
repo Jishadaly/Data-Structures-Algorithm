@@ -41,6 +41,21 @@ class Stack {
       return this.items[this.items.length - 2]
     }
   }
+  middle() {
+    if (this.isEmpty()) {
+        return "Stack is empty";
+    }
+    const middleIndex = Math.floor(this.items.length / 2);
+    return this.items[middleIndex]
+}
+removeMiddle() {
+  if (this.isEmpty()) {
+      return "Stack is empty";
+  }
+
+  const middleIndex = Math.floor(this.items.length / 2);
+  this.items.splice(middleIndex, 1);
+}
   removeMid() {
     if (this.isEmpty()) {
       return null
