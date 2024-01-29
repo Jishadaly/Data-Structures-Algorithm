@@ -101,8 +101,55 @@ class BinarySearchTree {
     }
   }
 
-  
-  
+  max(root){
+    if (!root.left) {
+      return root.value
+    }else{
+      return this.max(root.left)
+    }
+
+  }
+
+  min(root){
+    if (!root.right) {
+      return root.value
+    }else{
+      return this.min(root.right)
+    }
+  }
+
+  delete(value){
+     this.root = this.deleteNode(this.root , value)
+  }
+
+  deleteNode(root, value) {
+    if (root === null) {
+        return root;
+    }
+
+    if (value < root.value) {
+        root.left = this.deleteNode(root.left, value);
+    } else if (value > root.value) {
+        root.right = this.deleteNode(root.right, value);
+    } else {
+        if (!root.left && !root.right) {
+            return null;
+        }
+        if (!root.left) {
+            return root.right;
+        } else if (!root.right) {
+            return root.left;
+        }
+        
+        // Choose the maximum value from the left subtree as replacement
+        root.value = this.max(root.left);
+        // Delete the node with the maximum value from the left subtree
+        root.left = this.deleteNode(root.left, root.value);
+    }
+    return root;
+}
+
+
 
 }
 
@@ -122,4 +169,11 @@ console.log(bst.search(bst.root, 20));
 // bst.preOrder(bst.root)
 // bst.inOrder(bst.root);
 // bst.postOrder(bst.root)
+// bst.levelOrder()
+// console.log(bst.max(bst.root));
+// console.log(bst.min(bst.root));
+
+bst.levelOrder()
+console.log("/////////");
+bst.delete(5)
 bst.levelOrder()
