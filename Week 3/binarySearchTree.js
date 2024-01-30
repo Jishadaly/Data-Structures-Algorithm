@@ -6,7 +6,6 @@ class Node {
   }
 }
 
-
 class BinarySearchTree {
   constructor() {
     this.root = null
@@ -77,7 +76,7 @@ class BinarySearchTree {
     }
   }
 
-  postOrder(root){
+  postOrder(root) {
     if (root) {
       this.postOrder(root.left)
       this.postOrder(root.right)
@@ -86,7 +85,7 @@ class BinarySearchTree {
   }
 
 
-  levelOrder(){
+  levelOrder() {
     const queue = []
     queue.push(this.root)
     while (queue.length) {
@@ -101,57 +100,54 @@ class BinarySearchTree {
     }
   }
 
-  max(root){
+  max(root) {
     if (!root.left) {
       return root.value
-    }else{
+    } else {
       return this.max(root.left)
     }
 
   }
 
-  min(root){
+  min(root) {
     if (!root.right) {
       return root.value
-    }else{
+    } else {
       return this.min(root.right)
     }
   }
 
-  delete(value){
-     this.root = this.deleteNode(this.root , value)
+  delete(value) {
+    this.root = this.deleteNode(this.root, value)
   }
+
 
   deleteNode(root, value) {
     if (root === null) {
-        return root;
+      return root;
     }
-
     if (value < root.value) {
-        root.left = this.deleteNode(root.left, value);
+      root.left = this.deleteNode(root.left, value);
     } else if (value > root.value) {
-        root.right = this.deleteNode(root.right, value);
+      root.right = this.deleteNode(root.right, value);
     } else {
-        if (!root.left && !root.right) {
-            return null;
-        }
-        if (!root.left) {
-            return root.right;
-        } else if (!root.right) {
-            return root.left;
-        }
-        
-        // Choose the maximum value from the left subtree as replacement
-        root.value = this.max(root.left);
-        // Delete the node with the maximum value from the left subtree
-        root.left = this.deleteNode(root.left, root.value);
+      if (!root.left && !root.right) {
+        return null;
+      }
+      if (!root.left) {
+        return root.right;
+      } else if (!root.right) {
+        return root.left;
+      }
+
+      root.value = this.max(root.left);
+      root.left = this.deleteNode(root.left, root.value);
     }
     return root;
-}
-
-
+  }
 
 }
+
 
 const bst = new BinarySearchTree()
 
@@ -177,3 +173,46 @@ bst.levelOrder()
 console.log("/////////");
 bst.delete(5)
 bst.levelOrder()
+
+
+
+
+// bstvalidation()
+// {
+//   return this.isValid(this.root, -Infinity, Infinity) 
+// }
+
+// isValid(node, min, max){
+
+//   if (!node) {
+//     return true
+//   }
+//   if (node.value < min || node.value > max) {
+//     return false;
+//   }
+//   return this.isValid(node.left, min, node.value) && this.isValid(node.right, node.value, max);
+// }
+
+
+// closest(value)
+// {
+//   return this.findClosest(this.root, value, Infinity);
+// }
+// findClosest(node, target, closest)
+// {
+//   if (!node) {
+//     return null;
+//   }
+//   if (Math.abs(node.value - target) < closest) {
+//     closest = node.valkue;
+//   }
+//   if (target < node.value) {
+//     return this.findClosest(node.left, target, closest)
+//   }
+//   else if (target > node.value) {
+//     return this.findClosest(node.right, target, closest)
+//   }
+//   else {
+//     return closest;
+//   }
+// }
