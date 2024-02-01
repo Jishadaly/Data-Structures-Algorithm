@@ -11,9 +11,12 @@ class BinarySearchTree {
     this.root = null
   }
 
+
   isEmpty() {
     return this.root === null
   }
+
+  
   insert(value) {
     const newNode = new Node(value)
     if (this.isEmpty()) {
@@ -146,6 +149,47 @@ class BinarySearchTree {
     return root;
   }
 
+  
+bstvalidation()
+{
+  return this.isValid(this.root, -Infinity, Infinity) 
+}
+
+isValid(node, min, max){
+
+  if (!node) {
+    return true
+  }
+  if (node.value < min || node.value > max) {
+    return false;
+  }
+  return this.isValid(node.left, min, node.value) && this.isValid(node.right, node.value, max);
+}
+
+
+closest(value)
+{
+  return this.findClosest(this.root, value, Infinity);
+}
+findClosest(node, target, closest)
+{
+  if (!node) {
+    return null;
+  }
+  if (Math.abs(node.value - target) < closest) {
+    closest = node.value;
+  }
+  if (target < node.value) {
+    return this.findClosest(node.left, target, closest)
+  }
+  else if (target > node.value) {
+    return this.findClosest(node.right, target, closest)
+  }
+  else {
+    return closest;
+  }
+}
+
 }
 
 
@@ -176,43 +220,3 @@ bst.levelOrder()
 
 
 
-
-// bstvalidation()
-// {
-//   return this.isValid(this.root, -Infinity, Infinity) 
-// }
-
-// isValid(node, min, max){
-
-//   if (!node) {
-//     return true
-//   }
-//   if (node.value < min || node.value > max) {
-//     return false;
-//   }
-//   return this.isValid(node.left, min, node.value) && this.isValid(node.right, node.value, max);
-// }
-
-
-// closest(value)
-// {
-//   return this.findClosest(this.root, value, Infinity);
-// }
-// findClosest(node, target, closest)
-// {
-//   if (!node) {
-//     return null;
-//   }
-//   if (Math.abs(node.value - target) < closest) {
-//     closest = node.valkue;
-//   }
-//   if (target < node.value) {
-//     return this.findClosest(node.left, target, closest)
-//   }
-//   else if (target > node.value) {
-//     return this.findClosest(node.right, target, closest)
-//   }
-//   else {
-//     return closest;
-//   }
-// }

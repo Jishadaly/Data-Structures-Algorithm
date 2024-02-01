@@ -344,3 +344,168 @@ q.print()
     }
     
   }
+
+
+  class Node {
+    constructor(){
+        this.value = value
+        this.left = null
+        this.right = null
+    }
+  }
+
+  class BinarySearchTree{
+    constructor(){
+        this.root = null
+    }
+
+    isEmpty(){
+        return this.root = null
+    }
+
+    insert(value){
+        const Node = new Node (value)
+        if(this.isEmpty()){
+            this.root = value
+        }else{
+            this.insertNode(this.root , node)
+        }
+    }
+
+    insertNode(root , node){
+        if(root.value < node.value){
+            if(root.left === null){
+                root.left = newNode
+            }else{
+                this.insertNode(root.left , node)
+            }
+        }else{
+            if(root.right === null){
+                root.right = node
+            }else{
+                this.insertNode(this.right , node)
+            }
+        }
+    }
+
+    search(root , value){
+        if(!root){
+            return false
+        }else{
+            if(root.value === value){
+                return true
+            }else if(root.value < value){
+                this.search(root.left , value)
+            }else{
+                this.search(root.right , value)
+            }
+        }
+    }
+
+    max(root){
+        if(!root.left){
+            return root.value
+        }else{
+            return this.max(root.right)
+        }
+    }
+
+    min(root){
+    if(!root.right){
+        return root.value
+    }else{
+        this.min(this.right)
+    }
+    }
+
+    delete(value){
+        this.root = this.deleteNode(this.root , value)
+    }
+
+    deleteNode( root , value){
+        if(root === null) return true
+        if(value < root.value){
+            root.left = this.deleteNode(root.left , value);
+        }else if(value > root.value){
+            root.right = this.deleteNode(root.right , value)
+        }else {
+            if(!root.left && !root.right){
+                return null
+            }
+            if(!root.left){
+                return root.right
+            }else if(!root.right){
+                return root.left
+            }
+
+            root.value = this.max(root.left);
+            root.left = this.deleteNode(root.left , root.value)
+        }
+        return root 
+    }
+
+  }
+
+
+  class Node{
+    constructor(value){
+        this.value = value
+        this.left = null
+        this.right = null
+    }
+
+  }
+
+  class BinarySearchTree {
+    constructor(){
+        this.root = null
+    }
+
+    isEmpty(){
+        return this.root === null
+
+    }
+
+    insert(value){
+        const node = new Node(value)
+        if(this.isEmpty()){
+            this.root = node
+        }
+        else{
+            this.insertNode(this.root , node)
+        }
+    }
+    insertNode(root , node){
+        if(root.value < value){
+            if(root.left === null){
+                root.left = node
+            }else{
+                this.insertNode(root.left , node)
+            }
+        }else{
+            if(root.value > value){
+            if(root.right === null){
+                root.right = node
+            }else{
+                this.insertNode(root.right , node)
+            }
+        }
+    }
+    search(root, value){
+        if(!root){
+            return  false
+        }else{
+            if(root.value === value){
+                return true
+            }else if(root.value < value){
+                return this.search(root.left , value)
+            }else{
+                return this.search(root.right , value)
+            }
+        }
+    }
+    delete(value){
+        this.root = this.deleteNode(this.root , value)
+    }
+    
+  }

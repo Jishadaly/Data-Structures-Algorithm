@@ -20,8 +20,8 @@ class Stack {
       this.top = node
     } else {
       node.next = this.top
-      this.top = node
-
+      this.top = nod  
+      
     }
     this.size++
   }
