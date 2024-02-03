@@ -2,15 +2,19 @@ class MinHeap {
   constructor() {
     this.heap = []
   }
+
   getParentIndex(index) {
     return Math.floor((index - 1) / 2);
   }
+
   getLeftchildIndex(index) {
     return 2 * index + 1;
   }
+
   getRightChildIndex(index) {
     return 2 * index + 2
   }
+
 
   swap(index1, index2) {
     const temp = this.heap[index1]
@@ -34,7 +38,8 @@ class MinHeap {
       
   }
 
-  remove() {
+  remove(){
+
     if (this.heap.length === 0) {
       return null
     }
@@ -44,24 +49,27 @@ class MinHeap {
 
     const min = this.heap[0];
     this.heap[0] = this.heap.pop();
+
     this.heapifyDown(0)
 
     return min;
+
   }
+
 
   heapifyDown(index) {
 
     const leftchildIndex = this.getLeftchildIndex(index)
-    const righttchildIndex = this.getRightChildIndex(index)
+    const rightchildIndex = this.getRightChildIndex(index)
 
     let minIndex = index
 
-    if (leftchildIndex < this.heap.length && this.heap[leftchildIndex] < this.heap[minIndex]) {
+    if (leftchildIndex < this.heap.length && this.heap[leftchildIndex] < this.heap[minIndex] ) {
       minIndex = leftchildIndex
     }
 
-    if (righttchildIndex < this.heap.length && this.heap[righttchildIndex] < this.heap[minIndex]) {
-      minIndex = righttchildIndex
+    if (rightchildIndex < this.heap.length && this.heap[rightchildIndex] < this.heap[minIndex] ) {
+      minIndex = rightchildIndex
     }
 
     if (minIndex !== index) {
@@ -71,6 +79,22 @@ class MinHeap {
 
     }
   }
+  minHeapSort(){
+     const sortedArr = []
+
+     while(this.heap.length > 0){
+        sortedArr.push(this.remove())
+     }
+     return sortedArr
+  }
 
 }
 
+const minHeap = new MinHeap();
+
+minHeap.insert(10)
+minHeap.insert(29)
+minHeap.insert(3)
+minHeap.insert(5)
+
+console.log(minHeap.minHeapSort());
