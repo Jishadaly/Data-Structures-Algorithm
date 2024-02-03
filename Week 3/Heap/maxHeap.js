@@ -40,8 +40,29 @@ class maxHeap {
    if (this.heap.length === 1) {
      return this.heap.pop()
    }
+   const max = this.heap[0]
+   this.heap[0] = this.heap.pop()
+   this.heapfyDown(0)
+   return max
  }
 
+ heapfyDown(index){
+   const leftChildIndex = this.getLeftIndex(index)
+   const getRightIndex = this.getRightIndex(index)
+  const  maxIndex = index
+   if (leftChildIndex >=0 && this.heap[leftChildIndex] < this.heap[maxIndex]) {
+        maxIndex =  leftChildIndex    
+   }
+   if (getRightIndex >0 && this.heap[getRightIndex] < this.heap[maxIndex]) {
+    maxIndex = getRightIndex;
+   }
+   if (maxIndex !== index) {
+     this.swap(index , maxIndex)
+     this.heapfyDown(maxIndex)
+   }
+ }
+
+ 
 
 
 
