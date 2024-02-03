@@ -189,7 +189,6 @@ findClosest(node, target, closest)
     return closest;
   }
 }
-
 }
 
 
