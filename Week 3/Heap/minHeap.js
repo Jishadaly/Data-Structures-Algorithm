@@ -56,7 +56,7 @@ class MinHeap {
 
   }
 
-
+  
   heapifyDown(index) {
 
     const leftchildIndex = this.getLeftchildIndex(index)
@@ -79,12 +79,14 @@ class MinHeap {
 
     }
   }
+
   minHeapSort(){
      const sortedArr = []
 
      while(this.heap.length > 0){
         sortedArr.push(this.remove())
      }
+
      return sortedArr
   }
 
