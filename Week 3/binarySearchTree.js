@@ -59,8 +59,6 @@ class BinarySearchTree {
     }
   }
 
-
-
   preOrder(root) {
     if (root) {
       console.log(root.value);
@@ -69,8 +67,6 @@ class BinarySearchTree {
     }
   }
 
-
-
   inOrder(root) {
     if (root) {
       this.inOrder(root.left)
@@ -78,7 +74,7 @@ class BinarySearchTree {
       this.inOrder(root.right)
     }
   }
-
+  
   postOrder(root) {
     if (root) {
       this.postOrder(root.left)
@@ -86,7 +82,6 @@ class BinarySearchTree {
       console.log(root.value);
     }
   }
-
 
   levelOrder() {
     const queue = []
@@ -169,7 +164,9 @@ isValid(node, min, max){
   if (node.value < min || node.value > max) {
     return false;
   }
+
   return this.isValid(node.left, min, node.value) && this.isValid(node.right, node.value, max);
+
 }
 
 

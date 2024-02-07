@@ -43,15 +43,14 @@ class MinHeap {
     if (this.heap.length === 0) {
       return null
     }
+
     if (this.heap.length === 1) {
       return this.heap.pop();
     }
 
     const min = this.heap[0];
     this.heap[0] = this.heap.pop();
-
     this.heapifyDown(0)
-
     return min;
 
   }
@@ -61,10 +60,10 @@ class MinHeap {
 
     const leftchildIndex = this.getLeftchildIndex(index)
     const rightchildIndex = this.getRightChildIndex(index)
-
+    
     let minIndex = index
 
-    if (leftchildIndex < this.heap.length && this.heap[leftchildIndex] < this.heap[minIndex] ) {
+    if (leftchildIndex < this.heap.length && this.heap[leftchildIndex] <  this.heap[minIndex] ) {
       minIndex = leftchildIndex
     }
 
@@ -100,3 +99,4 @@ minHeap.insert(3)
 minHeap.insert(5)
 
 console.log(minHeap.minHeapSort());
+
