@@ -151,9 +151,11 @@ class Trie {
     }
     return true
   }
+
   display(){
     this.displayHeleper(this.root , "")
   }
+  
   displayHeleper(node , currentString){
      if (node.isWordEnd) {
        console.log(currentString);

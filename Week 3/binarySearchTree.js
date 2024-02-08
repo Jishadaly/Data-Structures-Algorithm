@@ -170,28 +170,28 @@ isValid(node, min, max){
 }
 
 
-closest(value)
-{
-  return this.findClosest(this.root, value, Infinity);
-}
-findClosest(node, target, closest)
-{
-  if (!node) {
-    return null;
-  }
-  if (Math.abs(node.value - target) < closest) {
-    closest = node.value;
-  }
-  if (target < node.value) {
-    return this.findClosest(node.left, target, closest)
-  }
-  else if (target > node.value) {
-    return this.findClosest(node.right, target, closest)
-  }
-  else {
-    return closest;
-  }
-}
+// closest(value)
+// {
+//   return this.findClosest(this.root, value, Infinity);
+// }
+// findClosest(node, target, closest)
+// {
+//   if (!node) {
+//     return null;
+//   }
+//   if (Math.abs(node.value - target) < closest) {
+//     closest = node.value;
+//   }
+//   if (target < node.value) {
+//     return this.findClosest(node.left, target, closest)
+//   }
+//   else if (target > node.value) {
+//     return this.findClosest(node.right, target, closest)
+//   }
+//   else {
+//     return closest;
+//   }
+// }
 }
 
 
@@ -219,6 +219,7 @@ bst.levelOrder()
 console.log("/////////");
 bst.delete(5)
 bst.levelOrder()
+console.log(bst.bstvalidation());
 
 
 
