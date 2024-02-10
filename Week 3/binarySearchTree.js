@@ -59,6 +59,7 @@
 //     }
 //   }
 
+
 //   preOrder(root) {
 //     if (root) {
 //       console.log(root.value);
@@ -104,7 +105,6 @@
 //     } else {
 //       return this.max(root.right)
 //     }
-
 //   }
 
 //   min(root) {
@@ -114,6 +114,7 @@
 //       return this.min(root.left)
 //     }
 //   }
+
 
 //   delete(value) {
 //     this.root = this.deleteNode(this.root, value)
@@ -233,7 +234,7 @@ class BST {
   constructor(){
     this.root = null
   }
-
+  
   isEmpty(){
     return this.root === null
   }
@@ -336,6 +337,7 @@ class BST {
       return this.max(root.right)
     }
   }
+
   validation(){
     return this.isValidate( this.root , -Infinity , Infinity)
   }
