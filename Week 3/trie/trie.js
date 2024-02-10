@@ -13,7 +13,7 @@ class Trie {
   }
 
   insert(word){
-    let curr  =this.root
+    let curr  = this.root
     for( let i=0;i<word.length;i++){
        let charToinsert = word[i];
        if (!curr.children.hasOwnProperty(charToinsert)) {
@@ -35,6 +35,8 @@ class Trie {
      }
      return curr.isWordEnd
   }
+
+  
   prefix(word){
     let curr = this.root
 

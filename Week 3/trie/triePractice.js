@@ -100,72 +100,146 @@
 
 
 
-class Node {
+  // class Node {
+  //   constructor(){
+  //     this.children = {}
+  //     this.isWordEnd = false
+  //   }
+  // }
+
+  // class Trie {
+
+  //   constructor(){
+  //     this.root = new Node()
+  //   }
+
+  //   insert (word){
+  //      let curr =   this.root
+  //      for(let i=0 ; i< word.length ;i++){
+  //        let charToInsert = word[i]
+  //        if (!curr.children.hasOwnProperty(charToInsert)) {
+  //           curr = curr.children[charToInsert] = new Node()
+  //        }
+  //        curr = curr.childNodes[charToInsert]
+  //      }
+  //      curr.isWordEnd = true
+  //   }
+
+  //   contains(word){
+
+  //     let curr = this.root
+  //     for(let i=0;i<word.length;i++){
+  //       let charToInsert = word[i]
+  //       if (!curr.children.hasOwnProperty(charToInsert)) {
+  //          return false
+  //       }
+  //       curr = curr.children[charToInsert]
+  //     }
+  //     return curr.isWordEnd 
+  //   }
+
+  //   prefix(prefix){
+  //     let curr = this.root
+  //     for(let i=0;i<prefix.length;i++){
+  //       let charToFind = prefix[i]
+  //       if (!curr.children.hasOwnProperty(charToFind)) {
+  //          return false
+  //       }
+
+  //       curr = curr.children[charToFind]
+
+  //     }
+  //     return true
+  //   }
+
+  //   display(){
+  //     this.displayHeleper(this.root , "")
+  //   }
+    
+  //   displayHeleper(node , currentString){
+  //      if (node.isWordEnd) {
+  //        console.log(currentString);
+  //      }
+  //      for(const char in node.children){
+  //       if (node.children.hasOwnProperty(char)) {
+  //         this.displayHeleper(node.children[char] , currentString + char)
+  //        }
+  //      }
+  //   }
+    
+  // }
+
+ class Node {
   constructor(){
-    this.children = {}
-    this.isWordEnd = false
+     this.children = {}
+     this.isWordEnd = false
   }
-}
+ }
 
-class Trie {
-
+ class Trie{
   constructor(){
-    this.root = new Node()
+     this.root = new Node()
   }
 
-  insert (word){
-     let curr =   this.root
-     for(let i=0 ; i< word.length ;i++){
-       let charToInsert = word[i]
+  insert(word){
+     let curr = this.root
+
+     for(let i = 0 ;i<word.legth;i++){
+       let charToInsert =  word[i]
        if (!curr.children.hasOwnProperty(charToInsert)) {
-          curr = curr.children[charToInsert] = new Node()
+           curr.children[charToInsert] = new Node()
        }
-       curr = curr.childNodes[charToInsert]
+       curr = curr.children[charToInsert]
      }
+      
      curr.isWordEnd = true
-  }
 
+  }
   contains(word){
-
-    let curr = this.root
-    for(let i=0;i<word.length;i++){
-      let charToInsert = word[i]
-      if (!curr.children.hasOwnProperty(charToInsert)) {
+    let curr  = this.root
+    for(let i=0 ;i < word.length ; i++){
+       let charToFind = word[i]
+       if (!curr.children.hasOwnProperty(charToFind)) {
          return false
-      }
-      curr = curr.children[charToInsert]
-    }
-    return curr.isWordEnd 
-  }
-
-  prefix(prefix){
-    let curr = this.root
-    for(let i=0;i<prefix.length;i++){
-      let charToFind = prefix[i]
-      if (!curr.children.hasOwnProperty(charToFind)) {
-         return false
-      }
-
-      curr = curr.children[charToFind]
-
-    }
-    return true
-  }
-
-  display(){
-    this.displayHeleper(this.root , "")
-  }
-  
-  displayHeleper(node , currentString){
-     if (node.isWordEnd) {
-       console.log(currentString);
-     }
-     for(const char in node.children){
-      if (node.children.hasOwnProperty(char)) {
-        this.displayHeleper(node.children[char] , currentString + char)
        }
-     }
+       curr = curr.children[charToFind]
+    }
+    return curr.isWordEnd;
   }
-  
-}
 
+  startPrefix( prefix){
+     let curr = this.root
+     for(let i=0 ;i<prefix.length ;i++){
+        let charToFind = prefix[i]
+        if (!curr.children.hasOwnProperty(charToFind)) {
+           return false
+        }
+        return true
+     }
+    
+
+  }
+  display(){
+    return displaHelper(this.root , "")
+ }
+ displaHelper(node , currentString){
+    if (node.isWordEnd) {
+      return currentString
+    }
+    for( let char in node.children){
+      if (node.children.hasOwnProperty(char)) {
+        this.displaHelper(node.children[char] , currentString+ char)
+      }
+    }
+ }
+
+ }
+
+ const trie = new Trie()
+
+ trie.insert("hello")
+ trie.insert("hey")
+
+ console.log(trie.contains("hey"));
+ console.log(trie.startPrefix("he"));
+ trie.display()

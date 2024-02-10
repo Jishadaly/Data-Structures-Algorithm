@@ -90,7 +90,7 @@ class Graph {
      this.List[vertex1].add(vertex2)
      this.List[vertex2].add(vertex2)
   }
-
+  
   display(){
     for(let vertex in this.List){
       console.log(vertex+"=> " + [...this.vertex[vertex]]);
